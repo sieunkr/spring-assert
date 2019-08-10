@@ -2,7 +2,15 @@ package com.example.demo;
 
 public class Coffee {
     private String name;
-    private Integer price;
+    private int price;
+
+    public Coffee(){
+    }
+
+    public Coffee(String name, int price){
+        this.name = name;
+        this.price = price;
+    }
 
     public String getName() {
         return name;
@@ -12,11 +20,11 @@ public class Coffee {
         this.name = name;
     }
 
-    public Integer getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 }

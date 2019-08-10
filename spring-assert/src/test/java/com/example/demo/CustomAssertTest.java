@@ -64,9 +64,8 @@ public class CustomAssertTest {
     public void state_exception(){
 
         Coffee lattee = new Coffee();
-        lattee.setName("라떼");
 
-        CustomAssert.state(lattee.getPrice() != null, "");
+        CustomAssert.state(lattee.getName() != null, "");
 
     }
 

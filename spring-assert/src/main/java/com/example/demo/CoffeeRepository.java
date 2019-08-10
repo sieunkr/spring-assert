@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.util.Assert;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
@@ -22,8 +23,14 @@ public class CoffeeRepository {
     }
 
     public Coffee findByName(String name){
+        /*
+        if(name == null){
+            throw new IllegalArgumentException("Coffee's name is not null.");
+        }
+        */
 
-        CustomAssert.notNull(name, "Coffee's name is not null.");
+        //CustomAssert.notNull(name, "Coffee's name is not null.");
+        Assert.notNull(name, "Coffee's name is not null.");
 
         return coffeeMap.get(name);
     }
@@ -31,7 +38,8 @@ public class CoffeeRepository {
 
     public List<Coffee> findByNameList(List<String> nameList){
 
-        CustomAssert.notEmpty(nameList, "At least one nameList required.");
+        //CustomAssert.notEmpty(nameList, "At least one nameList required.");
+        Assert.notEmpty(nameList, "At least one nameList required.");
 
         return coffeeMap.values().stream()
                 .filter(coffee -> nameList.contains(coffee.getName()))
@@ -41,8 +49,8 @@ public class CoffeeRepository {
 
     public List<Coffee> findRandom(int size){
 
-        CustomAssert.isTrue(size > 0, "Coffee size must be larger than zero");
-
+        //CustomAssert.isTrue(size > 0, "Coffee size must be larger than zero");
+        Assert.isTrue(size > 0, "Coffee size must be larger than zero");
 
         //TODO: 구현
         return null;
